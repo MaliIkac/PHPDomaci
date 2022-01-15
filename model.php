@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modeli automobila</title>
+  <title>Modeli telefona</title>
   <link rel="stylesheet" href="global.css">
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -38,17 +38,17 @@
               <input type="text" class="form-control" id="naziv_modela" placeholder="" required>
             </div>
             <div class="form-group">
-              <label for="karoserija">Karoserija:</label>
-              <input type="text" class="form-control" id="karoserija" placeholder="" required>
+              <label for="procesor">Procesor:</label>
+              <input type="text" class="form-control" id="procesor" placeholder="" required>
             </div>
 
             <div class="form-group">
-              <label for="kubikaza">Kubikaza:</label>
-              <input type="text" class="form-control" id="kubikaza" placeholder="" required>
+              <label for="kamera">Kamera:</label>
+              <input type="text" class="form-control" id="kamera" placeholder="" required>
             </div>
             <div class="form-group">
-              <label for="snaga">Snaga:</label>
-              <input type="text" class="form-control" id="snaga" placeholder="" required>
+              <label for="memorija">Memorija:</label>
+              <input type="text" class="form-control" id="interna memorija" placeholder="" required>
             </div>
 
           </form>
@@ -96,9 +96,9 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">Naziv modela</th>
-              <th scope="col">Karoserija</th>
-              <th scope="col">Kubikaza(cm3)</th>
-              <th scope="col">Snaga(kW)</th>
+              <th scope="col">Procesor</th>
+              <th scope="col">Kamera(Mpx)</th>
+              <th scope="col">Memorija(G)</th>
             </tr>
           </thead>
           <tbody id='modeli'>
@@ -113,7 +113,7 @@
       </div>
 
       <div class="alert alert-warning alert-dismissible fade show align_center" role="alert">
-        <strong>Dodajte novi model!</strong> Naziv modela, kubikaza i karoserija su obavezni!
+        <strong>Dodajte novi model!</strong> Naziv modela, procesor i kamera su obavezni!
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -139,15 +139,15 @@
     $(document).ready(function () {
       $('#button_sacuvaj').click(function () {
         const naziv = $('#naziv_modela').val();
-        const karoserija = $('#karoserija').val();
-        const kubikaza = $('#kubikaza').val();
-        const snaga = $('#snaga').val();
+        const procesor = $('#procesor').val();
+        const kamera = $('#kamera').val();
+        const memorija = $('#memorija').val();
         if (trenutniModelId == -1) {
-          $.post('./server/kreirajModel.php', { naziv: naziv, karoserija: karoserija, kubikaza: kubikaza, snaga: snaga, marka: marka.id }, function (data) {
+          $.post('./server/kreirajModel.php', { naziv: naziv, procesor: procesor, kamera: kamera, memorija: memorija, marka: marka.id }, function (data) {
             vratiModele();
           })
         } else {
-          $.post('./server/izmeniModel.php', { id: trenutniModelId, naziv: naziv, karoserija: karoserija, kubikaza: kubikaza, snaga: snaga, marka: marka.id }, function (data) {
+          $.post('./server/izmeniModel.php', { id: trenutniModelId, naziv: naziv, procesor: procesor, kamera: kamera, memorija: memorija, marka: marka.id }, function (data) {
             vratiModele();
           })
         }
@@ -170,17 +170,17 @@
           $('#naslovModala').html('Dodavanje novog modela');
           $('#button_delete').attr('hidden', true);
           $('#naziv_modela').val('');
-          $('#karoserija').val('');
-          $('#kubikaza').val('');
-          $('#snaga').val('');
+          $('#procesor').val('');
+          $('#kamera').val('');
+          $('#memorija').val('');
         } else {
           const model = modeli.find(function (element) { return element.id == trenutniModelId });
           $('#naslovModala').html('Izmena modela');
           $('#button_delete').attr('hidden', false);
           $('#naziv_modela').val(model.naziv);
-          $('#karoserija').val(model.karoserija);
-          $('#kubikaza').val(model.kubikaza);
-          $('#snaga').val(model.snaga);
+          $('#procesor').val(model.procesor);
+          $('#kamera').val(model.kamera);
+          $('#memorija').val(model.memorija);
         }
       })
       $.getJSON('./server/vratiMarku.php', { id: markaId }, function (data) {
@@ -216,9 +216,9 @@
             <tr data-toggle='modal' data-target='#exampleModal' data-id=${model.id} >
               <td>${++i}</td>
               <td>${model.naziv}</td>
-              <td>${model.karoserija}</td>
-              <td>${model.kubikaza}</td>
-              <td>${model.snaga}</td>
+              <td>${model.procesor}</td>
+              <td>${model.kamera}</td>
+              <td>${model.memorija}</td>
             </tr>
           `)
       }

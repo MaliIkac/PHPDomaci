@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modeli automobila</title>
+  <title>Modeli telefona</title>
   <link rel="stylesheet" href="global.css">
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -35,26 +35,26 @@
       </nav>
 
       <div class='h_div'>
-        <h1 class='h1_text'>Modeli automobila</h1>
+        <h1 class='h1_text'>Modeli telefona</h1>
 
         <br>
         <hr>
       </div>
       <div class="row">
         <div class="col-3">
-          <label>Sortiraj po marciiiiii</label>
+          <label>Sortiraj po marki</label>
           <select id='sortiraj' class='form-control'>
             <option value="asc">Abecedno</option>
             <option value="desc">Obrnuto od abecede</option>
           </select>
         </div>
         <div class="col-3">
-        <label>Pretrazi po snazi</label>
-        <input type="text" id="snaga" onkeyup="funkcijaZaPretragu1()" placeholder="Pretrazi po snazi">
+        <label>Pretrazi po memoriji</label>
+        <input type="text" id="memorija" onkeyup="funkcijaZaPretragu1()" placeholder="Pretrazi po memoriji">
         </div>
         <div class="col-3">
-        <label>Pretrazi po kubikazi</label>
-          <input type="text" id="kubikaza" onkeyup="funkcijaZaPretragu2()" placeholder="kubikaza">
+        <label>Pretrazi po kameri</label>
+          <input type="text" id="kamera" onkeyup="funkcijaZaPretragu2()" placeholder="Pretrazi kameru">
         </div>
       </div>
       <div class='table_div'>
@@ -64,9 +64,9 @@
               <th scope="col">#</th>
               <th scope="col">Marka</th>
               <th scope="col">Naziv modela</th>
-              <th scope="col">Karoserija</th>
-              <th scope="col">Kubikaza(cm3)</th>
-              <th scope="col">Snaga(kW)</th>
+              <th scope="col">Procesor</th>
+              <th scope="col">Kamera(Mpx)</th>
+              <th scope="col">Memorija(G)</th>
             </tr>
           </thead>
           <tbody id='modeli'>
@@ -122,23 +122,23 @@
     
 
     function funkcijaZaPretragu1() {
-      input = document.getElementById("snaga");
+      input = document.getElementById("memorija");
       filter = input.value;
       modeliFiltrirano = modeli;
 
       if(filter != "") {
-        modeliFiltrirano = modeli.filter((element) => element.snaga == filter);
+        modeliFiltrirano = modeli.filter((element) => element.memorija == filter);
       }
       napuniTabelu(modeliFiltrirano);
     }
 
     function funkcijaZaPretragu2() {
-      input = document.getElementById("kubikaza");
+      input = document.getElementById("kamera");
       filter = input.value;
       modeliFiltrirano = modeli;
 
       if(filter != "") {
-        modeliFiltrirano = modeli.filter((element) => element.kubikaza == filter);
+        modeliFiltrirano = modeli.filter((element) => element.kamera == filter);
       }
       napuniTabelu(modeliFiltrirano);
     }
@@ -153,9 +153,9 @@
               <td>${++i}</td>
               <td>${model.marka_naziv}</td>
               <td>${model.naziv}</td>
-              <td>${model.karoserija}</td>
-              <td>${model.kubikaza}</td>
-              <td>${model.snaga}</td>
+              <td>${model.procesor}</td>
+              <td>${model.kamera}</td>
+              <td>${model.memorija}</td>
             </tr>
           `)
       }

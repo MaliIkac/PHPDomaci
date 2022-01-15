@@ -5,7 +5,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-telefon">
         <li class="nav-item">
             <a class="nav-link" href="index.php">Marke</a>
         </li>

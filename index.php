@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marke automobila</title>
+  <title>Marke telefona</title>
   <link rel="stylesheet" href="global.css">
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -120,7 +120,7 @@
       </nav>
 
       <div class='h_div'>
-        <h1 class='h1_text'>Marke automobila</h1>
+        <h1 class='h1_text'>Marke telefona</h1>
         <i>- detalji -</i>
         <br>
         <hr>

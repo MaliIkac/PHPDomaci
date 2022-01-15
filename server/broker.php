@@ -12,7 +12,7 @@ class Broker{
         return $this->mysqli;
     }
     private function __construct(){
-        $this->mysqli = new mysqli("localhost", "root", "", "automobili");
+        $this->mysqli = new mysqli("localhost", "root", "", "telefoni");
         $this->mysqli->set_charset("utf8");
     }
 
